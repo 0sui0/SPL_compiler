@@ -1,0 +1,3 @@
+﻿  main.cpp
+e:\i_love_study\编译原理\compiler\project1\ircode.h(16): warning C4091: “static ”: 没有声明变量时忽略“IRcode::OPTION”的左侧
+  Project1.vcxproj -> E:\I_love_study\编译原理\compiler\Debug\Project1.exe

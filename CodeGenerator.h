@@ -5,7 +5,9 @@
 #include"IRcode.h"
 class CodeGenerator {
 private:
-	std::string resCode;
+	std::string resAsm;
+	int sp;
+	void addAsm(std::string str);
 	void addCode(IRcode code);
 
 public:

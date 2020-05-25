@@ -8,29 +8,46 @@ CodeGenerator::CodeGenerator()
 
 std::string* CodeGenerator::getAsm(std::vector<IRcode>* IRList)
 {
-	resCode = ".386\n";
-	resCode += "stacks segment\n";
-	resCode += "	db 1048576 dup(?)\n";
-	resCode += "stacks ends\n";
-	resCode += "code segment use16\n";
-	resCode += "assume ds: data, cs: code, ss: stacks";
-	resCode += "main:\n";
-	resCode += "	mov ax, data\n";
-	resCode += "	mov ds, ax\n";
+	resAsm = "";
+	addAsm(".386");
+	addAsm("stacks segment");
+	addAsm("	db 1048576 dup(?)");
+	addAsm("stacks ends");
+	addAsm("code segment use16");
+	addAsm("assume ds: data, cs: code, ss: stacks");
 
 	//////////
 	//todo
 	for (auto it = IRList->begin(); it != IRList->end(); it++)
 		addCode(*it);
 	//////
-	resCode += "code ends\n";
-	resCode += "end main\n";
+	addAsm("code ends");
+	addAsm("end main");
 }
 
 void CodeGenerator::addCode(IRcode code)
 {
 	switch (code.op) {
+
+		//branch
 		case IRcode::LABEL:
-			res
+			addAsm("	" + code.v1 + ":");
+			break;
+		case IRcode::GOTO:
+			addAsm("	jmp " + code.v1);
+			break;
+		case IRcode::IF:
+			addAsm("	mov ax, " + varMsg.get(code.v1));
+			addAsm("	cmp ax, 0");
+			addAsm("	jne " + code.v2);
+			break;
+
+		//variable
+		case IRcode::MALLOC:
+			varMsg.add(code.v1, code.v2);
+			break;
+		
+
+			
 	}
 }

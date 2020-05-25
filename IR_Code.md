@@ -34,7 +34,7 @@ label控制分支跳转。
 | label    | name  |       |      | label: name                     |
 | goto     | label |       |      | goto label                      |
 | if       | v1    | label |      | if v1 goto label                |
-| func     | n     |       |      | func($arg_0,arg_1...arg_{n-1}$) |
+| func     | name  | n     |      | func($arg_0,arg_1...arg_{n-1}$) |
 | param    | v1    |       |      | param v1                        |
 | call     |       | func  | n    | call func(n params)             |
 | return   |       |       |      | return                          |

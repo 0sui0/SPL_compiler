@@ -46,6 +46,44 @@ void CodeGenerator::addCode(IRcode code)
 		case IRcode::MALLOC:
 			varMsg.add(code.v1, code.v2);
 			break;
+		case IRcode::INT:
+			////todp
+			break;
+		case IRcode::REAL:
+			////todo
+			break;
+		
+		//function
+		case IRcode::FUNC:
+
+		case IRcode::PARAM:
+
+		case IRcode::CALL:
+
+		case IRcode::CALL_V:
+		
+		case IRcode::RETURN:
+
+		case IRcode::RETURN_V:
+
+		//operator
+		case IRcode::POSIVITE:
+			addAsm("	mov ax, " + varMng.get(code.v2));
+			addAsm("	mov " + varMng.get(code.v1) + ", ax");
+			break;
+		case IRcode::NEGATIVE:
+			addAsm("	mov ax, " + varMng.get(code.v2));
+			addAsm("	xor bx, bx")
+			addAsm("	sub bx, ax");
+			addAsm("	mov " + varMng.get(code.v1) + ", bx");
+			break;
+		case IRcode::NEG_LOGIC:
+			addAsm("	mov ax", + varMng.get(code.v2));
+			addAsm("	not ax");
+			addAsm("	mov " + varMng.get(code.v1) + ", bx");
+			break;
+		
+
 		
 
 			

@@ -67,6 +67,7 @@ void CodeGenerator::addCode(IRcode code)
 		case IRcode::RETURN_V:
 
 		//operator
+			//
 		case IRcode::POSIVITE:
 			addAsm("	mov ax, " + varMng.get(code.v2));
 			addAsm("	mov " + varMng.get(code.v1) + ", ax");
@@ -82,6 +83,13 @@ void CodeGenerator::addCode(IRcode code)
 			addAsm("	not ax");
 			addAsm("	mov " + varMng.get(code.v1) + ", bx");
 			break;
+			//
+		case IRcode::ADD_I:
+			addAsm("	mov ax, " + varMng.get(code.v2));
+			addAsm("	mov bx, " + varMng.get(code.v3));
+			addAsm("	")
+
+
 		
 
 		

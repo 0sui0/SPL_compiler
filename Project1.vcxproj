@@ -118,10 +118,12 @@
     <ClInclude Include="CodeGenerator.h" />
     <ClInclude Include="IRcode.h" />
     <ClInclude Include="Optimizer.h" />
+    <ClInclude Include="VarManager.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CodeGenerator.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="VarMangager.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
